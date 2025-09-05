@@ -47,7 +47,7 @@ const initialConfigSetup = async () => {
     if (answer.nodeType === NodeType.VALIDATOR) {
       const validatorChoices =
         answer.network === Network.MAINNET
-          ? [ValidatorType.JITO, ValidatorType.SOLANA]
+          ? [ValidatorType.JITO, ValidatorType.SOLANA, ValidatorType.FRANKENDANCER]
           : [
               ValidatorType.AGAVE,
               ValidatorType.JITO,

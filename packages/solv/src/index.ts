@@ -17,6 +17,7 @@ import {
   mountCommands,
   relayerCommands,
   dfCommands,
+  firedancerCommands,
 } from '@/cli'
 import { balanceCommands } from './cli/balance'
 import { rmLogs } from './cli/setup/rmLogs'
@@ -70,7 +71,8 @@ async function main() {
     swapCommand(program, config)
     epochTimerCommands(config)
     switchCommand(program, config)
-    jupiterCommands()
+  jupiterCommands()
+    firedancerCommands()
 
     program
       .command('rm:log')
