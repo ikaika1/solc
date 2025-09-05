@@ -3,7 +3,7 @@ import { discordChangeLog } from './discordChangeLog'
 import { messageChannel } from './messageChannel'
 dotenv.config()
 
-const REPO_NAME = 'epicsDAO/solv'
+const REPO_NAME = 'epicsDAO/solc'
 
 const run = async () => {
   const langs = ['en', 'ja']

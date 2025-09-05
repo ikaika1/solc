@@ -3,8 +3,8 @@
     <img src="https://solc-storage.validators.solutions/ogp.jpg" alt="solc" />
   </a>
 
-  <a href="https://twitter.com/intent/follow?screen_name=slvSOLANA">
-    <img src="https://img.shields.io/twitter/follow/slvSOLANA.svg?label=Follow%20@slvSOLANA" alt="Follow @slvSOLANA" />
+  <a href="https://twitter.com/intent/follow?screen_name=solvSolana">
+    <img src="https://img.shields.io/twitter/follow/solvSolana.svg?label=Follow%20@solvSolana" alt="Follow @solvSolana" />
   </a>
   <br/>
   <a aria-label="npm version" href="https://www.npmjs.com/package/@ily-validatro/solc">
@@ -21,27 +21,7 @@
   </a>
 </p>
 
-# What...? solc is evolving to SLV!
-
-<a href="https://slv.dev/">
-  <img src="https://storage.slv.dev/SLVogp.jpg" alt="SLV" />
-</a>
-
-solc was originally developed by Epics DAO as an open-source tool to easily launch Solana validators and RPC nodes, significantly reducing operational overhead.
-
-Currently, solc continues to operate by accessing nodes and modifying settings within them. However, because it depends on the state of remote nodes and adjusts its behavior accordingly, management can become complex.
-
-We’ve been exploring solutions to address this challenge and have released SLV, which improves and strengthens security even further through remote management and keyless operations.
-
-Going forward, we will fully migrate the solc development platform to SLV, enabling complete local configuration management and reproducible remote operations for both RPC and validator nodes.
-
-SLV Web: https://slv.dev/
-
-SLV GitHub: https://github.com/ValidatorsDAO/slv
-
-Validators DAO Discord Community: https://discord.gg/C7ZQSrCkYR
-
-## 🚧 CLI Tool for Managing Solana Validators - "solc"
+## CLI Tool for Managing Solana Validators - "solc"
 
 Documentation: [https://solc.epics.dev/](https://solc.epics.dev/)
 
