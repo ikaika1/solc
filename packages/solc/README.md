@@ -2,7 +2,7 @@
   <a href="https://solc.epics.dev/">
     <img src="https://solc-storage.validators.solutions/ogp.jpg" alt="solc" />
   </a>
-
+<!-- chore: trigger release workflow via docs-only change -->
   <a href="https://twitter.com/intent/follow?screen_name=solvSolana">
     <img src="https://img.shields.io/twitter/follow/solvSolana.svg?label=Follow%20@solvSolana" alt="Follow @solvSolana" />
   </a>

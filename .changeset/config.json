@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "EpicsDAO/solc" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "ikaika1/solc" }],
   "commit": false,
   "fixed": [],
   "linked": [],
