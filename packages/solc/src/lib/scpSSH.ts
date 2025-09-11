@@ -9,7 +9,7 @@ export type ScpSSHResult = {
 const scpSSH = (
   ip: string,
   cmd: string,
-  username = 'solc',
+  username = 'solv',
   stdio = 'pipe' as CommonSpawnOptions['stdio'],
   sshKeyPath = '~/.ssh/id_rsa',
 ) => {
