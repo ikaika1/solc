@@ -3,21 +3,31 @@ import { spawnSync } from 'node:child_process'
 
 export const getSnapshot = (
   isTest = false,
-  minDownloadSpeed = '45',
   ledgerPath = MT_PATHS.LEDGER,
-  snapshotPath = `${ledgerPath}/snapshot`,
-  version: string
 ) => {
   try {
-    let cmd = `docker run -it --rm -v ${ledgerPath}:${snapshotPath} --user $(id -u):$(id -g) c29r3/solana-snapshot-finder:latest --snapshot_path ${snapshotPath} --min_download_speed ${minDownloadSpeed} --version ${version}`
+    // Use aria2c to download snapshots based on network
     if (isTest) {
-      spawnSync(
-        `wget --trust-server-names https://snapshots.avorio.network/testnet/snapshot.tar.bz2 https://snapshots.avorio.network/testnet/incremental-snapshot.tar.bz2`,
-        { shell: true, stdio: 'inherit', cwd: '/mnt/ledger' },
-      )
+      const testnetCmd = [
+        'aria2c -x16 -s16 --force-sequential=true',
+        `-d ${ledgerPath}`,
+        'https://snapshots.avorio.network/testnet/snapshot.tar.bz2',
+        'https://snapshots.avorio.network/testnet/incremental-snapshot.tar.bz2',
+      ].join(' ')
+      spawnSync(testnetCmd, { shell: true, stdio: 'inherit' })
       return
     }
-    spawnSync(cmd, { shell: true, stdio: 'inherit' })
+
+    const mainnetCmd = [
+      // Ensure aria2 is installed before downloading on mainnet
+      'sudo apt-get update && sudo apt-get install -y aria2',
+      '&&',
+      'aria2c -x16 -s16 --force-sequential=true',
+      `-d ${ledgerPath}`,
+      'https://snapshots.avorio.network/mainnet-beta/snapshot.tar.bz2',
+      'https://snapshots.avorio.network/mainnet-beta/incremental-snapshot.tar.bz2',
+    ].join(' ')
+    spawnSync(mainnetCmd, { shell: true, stdio: 'inherit' })
   } catch (error) {
     throw new Error(`getSnapshot Error: ${error}`)
   }

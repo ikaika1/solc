@@ -1,3 +1,5 @@
+import { VERSION_JITO_MAINNET } from '@/config/versionConfig'
+
 export interface JitoConfig {
   version: string
   tag: string
@@ -9,8 +11,8 @@ export interface JitoConfig {
 }
 
 export const JITO_CONFIG: JitoConfig = {
-  version: '1.18.23',
-  tag: 'v1.18.23-jito',
+  version: VERSION_JITO_MAINNET,
+  tag: `v${VERSION_JITO_MAINNET}-jito`,
   commissionBps: 700,
   relayerUrl: 'http://amsterdam.mainnet.relayer.jito.wtf:8100',
   blockEngineUrl: 'https://amsterdam.mainnet.block-engine.jito.wtf',

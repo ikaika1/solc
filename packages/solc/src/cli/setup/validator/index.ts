@@ -9,6 +9,7 @@ import { startJitoValidatorScript } from '@/template/startupScripts/startJitoVal
 import { startMainnetValidatorScript } from '@/template/startupScripts/startMainnetValidatorScript'
 import { startTestnetAgaveValidatorScript } from '@/template/startupScripts/startTestnetAgaveValidatorScript'
 import { existsAsync } from '@skeet-framework/utils'
+import { VERSION_JITO_MAINNET } from '@/config/versionConfig'
 import { writeFile } from 'fs/promises'
 import updateStartupScriptPermissions from '@/cli/setup/updateStartupScriptPermission'
 
@@ -40,7 +41,8 @@ const setupMainnetValidator = async (config: DefaultConfigType) => {
     case ValidatorType.JITO:
       console.log('JITO Validator Setup for Mainnet')
       const jitoConfig = await readOrCreateJitoConfig()
-      installJito(version)
+      // Fallback to mainnet Jito default if version is unset in config
+      installJito(version || VERSION_JITO_MAINNET)
       startupScript = startJitoValidatorScript(
         jitoConfig.commissionBps,
         jitoConfig.relayerUrl,
