@@ -8,7 +8,7 @@ export const SOLV_CONFIG_FILE = 'solc.config.json'
 export const SOLV4_CONFIG_FILE = 'solc4.config.json'
 
 // Linux System Config Files
-export const SOL_SERVICE = '/etc/systemd/system/solc.service'
+export const SOL_SERVICE = '/etc/systemd/system/solv.service'
 export const SOL_LOGROTATE = '/etc/logrotate.d/solana'
 export const SOL_SYSTEM_CONFIG21 = '/etc/sysctl.d/21-solana-validator.conf'
 export const SOL_NOFILES_CONF = '/etc/security/limits.d/90-solana-nofiles.conf'

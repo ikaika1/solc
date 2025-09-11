@@ -1,5 +1,13 @@
 # @epics-dao/solv
 
+## 5.0.1
+
+### Patch Changes
+
+- Bump to 5.0.1 to publish a new release after 5.0.0 already exists on npm.
+
+  - Fix: update release process to avoid reusing an already published version.
+
 ## 4.7.7
 
 ### Patch Changes

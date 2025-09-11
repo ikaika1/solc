@@ -7,7 +7,7 @@ export const showConfig = () => {
   spawnSync(cmd, { shell: true, stdio: 'inherit' })
   const config = startupScriptPaths()
   console.log(chalk.white('start-validator.sh: ') + config.scriptPath)
-  console.log(chalk.white('solc.service: ') + SERVICE_PATHS.SOL_SERVICE)
+  console.log(chalk.white('service unit: ') + SERVICE_PATHS.SOL_SERVICE)
   console.log(chalk.white('logrotate: ') + SERVICE_PATHS.SOL_LOGROTATE)
   console.log(chalk.white('sysctl.d: ') + SERVICE_PATHS.SOL_SYSTEM_CONFIG21)
   console.log(chalk.white('limits.d: ') + SERVICE_PATHS.SOL_NOFILES_CONF)

@@ -16,7 +16,7 @@ export const systemctlStatusSolv = (config: DefaultConfigType) => {
   const service =
     config.VALIDATOR_TYPE === ValidatorType.FRANKENDANCER
       ? 'frankendancer'
-      : 'solc'
+      : 'solv'
   const cmd = `sudo systemctl status ${service}`
   spawnSync(cmd, { shell: true, stdio: 'inherit' })
   process.exit(0)

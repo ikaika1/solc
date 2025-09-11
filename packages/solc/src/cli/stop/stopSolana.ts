@@ -6,7 +6,7 @@ export const stopSolana = (config: DefaultConfigType) => {
   const service =
     config.VALIDATOR_TYPE === ValidatorType.FRANKENDANCER
       ? 'frankendancer'
-      : 'solc'
-  const cmd = [`sudo systemctl stop ${service}`]
-  spawnSync(cmd[0], { shell: true, stdio: 'inherit' })
+      : 'solv'
+  const cmd = `sudo systemctl stop ${service}`
+  spawnSync(cmd, { shell: true, stdio: 'inherit' })
 }

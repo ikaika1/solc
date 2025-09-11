@@ -29,8 +29,11 @@ export const migrate = async () => {
     console.log(`Already migrated. Exiting...`)
     return false
   }
-  console.log('Stopping solc service...')
-  spawnSync('sudo systemctl stop solc', { shell: true, stdio: 'inherit' })
+  console.log('Stopping validator service...')
+  spawnSync('sudo systemctl stop solv', {
+    shell: true,
+    stdio: 'inherit',
+  })
   await sleep(7000)
   mvKeys()
   rmSwap()

@@ -138,7 +138,7 @@ export const FILES = {
 }
 
 export const SERVICE_PATHS = {
-  SOL_SERVICE: '/etc/systemd/system/solc.service',
+  SOL_SERVICE: '/etc/systemd/system/solv.service',
   SOL_LOGROTATE: '/etc/logrotate.d/solana',
   SOL_SYSTEM_CONFIG21: '/etc/sysctl.d/21-solana-validator.conf',
   SOL_NOFILES_CONF: '/etc/security/limits.d/90-solana-nofiles.conf',

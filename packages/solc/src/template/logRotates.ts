@@ -10,7 +10,7 @@ export const logRotates = (username = CONFIG.USERNAME) => {
   missingok
   compress
   postrotate
-    systemctl kill -s USR1 solc.service
+    systemctl kill -s USR1 solv.service
   endscript
 }
 `

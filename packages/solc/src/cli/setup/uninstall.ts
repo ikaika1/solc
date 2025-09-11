@@ -19,16 +19,22 @@ export const uninstall = async () => {
     return false
   }
   console.log('Uninstalling Solc...')
-  execSync(`sudo systemctl stop solc`)
+  try {
+    execSync(`sudo systemctl stop solv`)
+  } catch {}
   await sleep(2000)
   const servicePaths = Object.values(SERVICE_PATHS)
   //servicePaths.push('/mnt/*')
 
-  // Remove all solc.service files
+  // Remove all service files (new and legacy)
   for (const path of servicePaths) {
     console.log(`Removing ${path}`)
     execSync(`sudo rm -rf ${path}`)
   }
+  // Also attempt to remove legacy unit explicitly if present
+  try {
+    execSync(`sudo rm -rf /etc/systemd/system/solc.service`)
+  } catch {}
 
   const solvTrashPath = 'home/solc/solcKeys/trash'
   if (!existsSync(solvTrashPath)) {
