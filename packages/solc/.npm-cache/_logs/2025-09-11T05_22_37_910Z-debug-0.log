@@ -1,0 +1,61 @@
+0 verbose cli /usr/bin/node /home/y/.npm-global/bin/npm
+1 info using npm@11.5.2
+2 info using node@v20.19.5
+3 silly config load:file:/home/y/.npm-global/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/y/bot/zyuyou/solana/solc/packages/solc/.npmrc
+5 silly config load:file:/home/y/.npmrc
+6 silly config load:file:/home/y/.npm-global/etc/npmrc
+7 verbose title npm publish ily-validatro-solc-5.0.0.tgz
+8 verbose argv "publish" "ily-validatro-solc-5.0.0.tgz" "--access" "public"
+9 verbose logfile logs-max:10 dir:/home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_22_37_910Z-
+10 verbose logfile /home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_22_37_910Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose publish [ 'ily-validatro-solc-5.0.0.tgz' ]
+13 http cache file:/home/y/bot/zyuyou/solana/solc/packages/solc/ily-validatro-solc-5.0.0.tgz 0ms (cache hit)
+14 notice
+15 notice 📦  @ily-validatro/solc@5.0.0
+16 notice Tarball Contents
+17 notice 5.6kB README.md
+17 notice 91B dist/index.d.ts
+17 notice 143.9kB dist/index.js
+17 notice 464.5kB dist/index.js.map
+17 notice 2.2kB package.json
+18 notice Tarball Details
+19 notice name: @ily-validatro/solc
+20 notice version: 5.0.0
+21 notice filename: ily-validatro-solc-5.0.0.tgz
+22 notice package size: 150.3 kB
+23 notice unpacked size: 616.2 kB
+24 notice shasum: 5563779f77dc9974b37d5858927ee23890e64d31
+25 notice integrity: sha512-z6epTA3zThN5M[...]sDRwCPDCz6pdg==
+26 notice total files: 5
+27 notice
+28 http fetch GET 404 https://registry.npmjs.org/@ily-validatro%2fsolc 591ms (cache skip)
+29 http fetch GET 404 https://registry.npmjs.org/@ily-validatro%2fsolc 584ms (cache skip)
+30 notice Publishing to https://registry.npmjs.org with tag latest and public access
+31 http fetch PUT 404 https://registry.npmjs.org/@ily-validatro%2fsolc 718ms
+32 verbose stack HttpErrorGeneral: 404 Not Found - PUT https://registry.npmjs.org/@ily-validatro%2fsolc - Scope not found
+32 verbose stack     at /home/y/.npm-global/lib/node_modules/npm/node_modules/npm-registry-fetch/lib/check-response.js:103:15
+32 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+32 verbose stack     at async publish (/home/y/.npm-global/lib/node_modules/npm/node_modules/libnpmpublish/lib/publish.js:53:15)
+32 verbose stack     at async otplease (/home/y/.npm-global/lib/node_modules/npm/lib/utils/auth.js:8:12)
+32 verbose stack     at async #publish (/home/y/.npm-global/lib/node_modules/npm/lib/commands/publish.js:188:7)
+32 verbose stack     at async Publish.exec (/home/y/.npm-global/lib/node_modules/npm/lib/commands/publish.js:47:5)
+32 verbose stack     at async Npm.exec (/home/y/.npm-global/lib/node_modules/npm/lib/npm.js:208:9)
+32 verbose stack     at async module.exports (/home/y/.npm-global/lib/node_modules/npm/lib/cli/entry.js:67:5)
+33 verbose statusCode 404
+34 verbose pkgid @ily-validatro/solc@5.0.0
+35 error code E404
+36 error 404 Not Found - PUT https://registry.npmjs.org/@ily-validatro%2fsolc - Scope not found
+37 error 404
+38 error 404  The requested resource '@ily-validatro/solc@5.0.0' could not be found or you do not have permission to access it.
+39 error 404
+40 error 404 Note that you can also install from a
+41 error 404 tarball, folder, http url, or git url.
+42 verbose cwd /home/y/bot/zyuyou/solana/solc/packages/solc
+43 verbose os Linux 6.8.0-65-generic
+44 verbose node v20.19.5
+45 verbose npm  v11.5.2
+46 verbose exit 1
+47 verbose code 1
+48 error A complete log of this run can be found in: /home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_22_37_910Z-debug-0.log

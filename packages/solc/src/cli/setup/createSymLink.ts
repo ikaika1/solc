@@ -14,14 +14,14 @@ export const createActiveSymLink = (isTest = false) => {
     network = 'testnet'
   }
   spawnSync(
-    `ln -sf /home/solc/${network}-validator-keypair.json /home/solc/identity.json`,
+    `ln -sf /home/solv/${network}-validator-keypair.json /home/solv/identity.json`,
     { shell: true, stdio: 'inherit' },
   )
 }
 
 export const createInactiveSymLink = () => {
   spawnSync(
-    `ln -sf /home/solc/unstaked-identity.json /home/solc/identity.json`,
+    `ln -sf /home/solv/unstaked-identity.json /home/solv/identity.json`,
     { shell: true, stdio: 'inherit' },
   )
 }

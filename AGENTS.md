@@ -13,11 +13,11 @@
 ## Build, Test, and Development Commands
 - `pnpm i`: Install workspace dependencies (Node >= 20, pnpm >= 9).
 - `pnpm build`: Build all packages via Turborepo.
-- `pnpm -F "@ily-validatro/solc" build`: Build the CLI only (tsup -> `dist/index.js`).
+- `pnpm -F "@ily-validator/solc" build`: Build the CLI only (tsup -> `dist/index.js`).
 - `pnpm dev`: Run workspace dev tasks (watch where supported).
 - `pnpm test`: Run tests (depends on builds).
 - `pnpm lint`: Lint all packages.
-- Example local run: `node packages/solc/dist/index.js --help` or `pnpm -F "@ily-validatro/solc" start`.
+- Example local run: `node packages/solc/dist/index.js --help` or `pnpm -F "@ily-validator/solc" start`.
 
 ## Coding Style & Naming Conventions
 - Language: TypeScript (ESM). Indent 2 spaces.
@@ -29,7 +29,7 @@
 ## Testing Guidelines
 - Framework: Vitest (`packages/solc`).
 - Location/pattern: `packages/solc/tests/**/*.test.ts`.
-- Run: `pnpm -F "@ily-validatro/solc" test` or `pnpm test` (workspace).
+- Run: `pnpm -F "@ily-validator/solc" test` or `pnpm test` (workspace).
 - Aim to cover new CLI flags, error paths, and core flows; prefer fast, unit-level tests around helpers.
 
 ## Commit & Pull Request Guidelines

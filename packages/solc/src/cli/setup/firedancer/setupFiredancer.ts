@@ -12,20 +12,20 @@ const setupFiredancer = async () => {
   spawnSync(`git checkout v${VERSION_FIREDANCER}`, {
     shell: true,
     stdio: 'inherit',
-    cwd: '/home/solc/firedancer',
+    cwd: '/home/solv/firedancer',
   })
   spawnSync(`./deps.sh`, {
     shell: true,
     stdio: 'inherit',
-    cwd: '/home/solc/firedancer',
+    cwd: '/home/solv/firedancer',
   })
   spawnSync(`make -j fdctl solana`, {
     shell: true,
     stdio: 'inherit',
-    cwd: '/home/solc/firedancer',
+    cwd: '/home/solv/firedancer',
   })
   spawnSync(
-    `sudo ln -s /home/solc/firedancer/build/native/gcc/bin/fdctl /usr/local/bin/fdctl`,
+    `sudo ln -s /home/solv/firedancer/build/native/gcc/bin/fdctl /usr/local/bin/fdctl`,
     {
       shell: true,
       stdio: 'inherit',

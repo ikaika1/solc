@@ -21,7 +21,7 @@ export const cronCommands = () => {
         console.log(chalk.green('⚠️ Epoch Timer Cron Job already set'))
         process.exit(1)
       }
-      const cronJob = `(crontab -l 2>/dev/null; echo "${options.cron} . /home/solc/.profile && solc epochTimer >> /home/solc/cron.log 2>&1") | crontab -`
+      const cronJob = `(crontab -l 2>/dev/null; echo "${options.cron} . /home/solv/.profile && solc epochTimer >> /home/solv/cron.log 2>&1") | crontab -`
       spawnSync(cronJob, { shell: true, stdio: 'inherit' })
       console.log(chalk.green('✅ Epoch Timer Cron Job Set'))
     })

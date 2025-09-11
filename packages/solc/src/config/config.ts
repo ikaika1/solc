@@ -91,7 +91,7 @@ export type PartialConfigType = Partial<CONFIG_TYPE>
 export const CONFIG: CONFIG_TYPE = {
   ID: 'solc',
   LANG: LANGS.EN,
-  USERNAME: 'solc',
+  USERNAME: 'solv',
   TESTNET_SOLANA_VERSION: '2.0.8',
   MAINNET_SOLANA_VERSION: '1.18.23',
   NODE_VERSION: '20.17.0',
@@ -113,15 +113,15 @@ export const CONFIG: CONFIG_TYPE = {
   HARVEST_ACCOUNT: '',
   IS_MEV_MODE: false,
   RPC_URL: 'https://mainnet-beta.solana.com',
-  KEYPAIR_PATH: '/home/solc/testnet-validator-keypair.json',
+  KEYPAIR_PATH: '/home/solv/testnet-validator-keypair.json',
   DISCORD_WEBHOOK_URL: '',
   AUTO_UPDATE: false,
   AUTO_RESTART: false,
 }
 
 export const HOME_PATHS = {
-  ROOT: '/home/solc',
-  AUTHORIZED_KEYS: '/home/solc/.ssh/authorized_keys',
+  ROOT: '/home/solv',
+  AUTHORIZED_KEYS: '/home/solv/.ssh/authorized_keys',
 }
 
 export const MT_PATHS = {
@@ -143,7 +143,7 @@ export const SERVICE_PATHS = {
   SOL_SYSTEM_CONFIG21: '/etc/sysctl.d/21-solana-validator.conf',
   SOL_NOFILES_CONF: '/etc/security/limits.d/90-solana-nofiles.conf',
   SOL_SYSTEM_CONF: '/etc/systemd/system.conf',
-  SOLANA_PATH: '/home/solc/.local/share/solana/install',
+  SOLANA_PATH: '/home/solv/.local/share/solana/install',
 }
 
 export const KEYPAIRS = {
@@ -231,6 +231,6 @@ export const DECIMALS = {
   [EPCT_MINT_ADDRESS]: 6,
 }
 
-export const EPOCH_TIMER_FILE_PATH = '/home/solc/currentEpoch.json'
+export const EPOCH_TIMER_FILE_PATH = '/home/solv/currentEpoch.json'
 export const MINIMUM_VALIDATOR_BALANCE = 0.5
 export const SOLANA_TESTNET_RPC_URL = 'https://api.testnet.solana.com'

@@ -9,7 +9,7 @@ export const jitoRelayerSetup = async (
   isCoHost = true,
 ) => {
   // Create openssl keypair
-  spawnSync('openssl', ['genrsa', '-out', '/home/solc/private.pem'], {
+  spawnSync('openssl', ['genrsa', '-out', '/home/solv/private.pem'], {
     stdio: 'inherit',
     shell: true,
   })
@@ -18,10 +18,10 @@ export const jitoRelayerSetup = async (
     [
       'rsa',
       '-in',
-      '/home/solc/private.pem',
+      '/home/solv/private.pem',
       '-pubout',
       '-out',
-      '/home/solc/public.pem',
+      '/home/solv/public.pem',
     ],
     { stdio: 'inherit', shell: true },
   )
@@ -33,7 +33,7 @@ export const jitoRelayerSetup = async (
       'new',
       '--no-bip39-passphrase',
       '--outfile',
-      '/home/solc/relayer-keypair.json',
+      '/home/solv/relayer-keypair.json',
     ],
     { stdio: 'inherit', shell: true },
   )

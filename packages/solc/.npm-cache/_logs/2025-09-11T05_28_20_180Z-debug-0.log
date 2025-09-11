@@ -1,0 +1,42 @@
+0 verbose cli /usr/bin/node /home/y/.npm-global/bin/npm
+1 info using npm@11.5.2
+2 info using node@v20.19.5
+3 silly config load:file:/home/y/.npm-global/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/y/bot/zyuyou/solana/solc/packages/solc/.npmrc
+5 silly config load:file:/home/y/.npmrc
+6 silly config load:file:/home/y/.npm-global/etc/npmrc
+7 verbose title npm publish ily-validator-solc-5.0.0.tgz
+8 verbose argv "publish" "ily-validator-solc-5.0.0.tgz" "--access" "public"
+9 verbose logfile logs-max:10 dir:/home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_28_20_180Z-
+10 verbose logfile /home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_28_20_180Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose publish [ 'ily-validator-solc-5.0.0.tgz' ]
+13 http cache file:/home/y/bot/zyuyou/solana/solc/packages/solc/ily-validator-solc-5.0.0.tgz 1ms (cache hit)
+14 notice
+15 notice 📦  @ily-validator/solc@5.0.0
+16 notice Tarball Contents
+17 notice 5.6kB README.md
+17 notice 91B dist/index.d.ts
+17 notice 143.9kB dist/index.js
+17 notice 464.5kB dist/index.js.map
+17 notice 2.2kB package.json
+18 notice Tarball Details
+19 notice name: @ily-validator/solc
+20 notice version: 5.0.0
+21 notice filename: ily-validator-solc-5.0.0.tgz
+22 notice package size: 150.3 kB
+23 notice unpacked size: 616.2 kB
+24 notice shasum: f8eaaa57821bd3c1952439cb0a049af339cab113
+25 notice integrity: sha512-zsjypKikTkZxu[...]Sqxvjm3YWnTfg==
+26 notice total files: 5
+27 notice
+28 http fetch GET 404 https://registry.npmjs.org/@ily-validator%2fsolc 603ms (cache skip)
+29 http fetch GET 404 https://registry.npmjs.org/@ily-validator%2fsolc 439ms (cache skip)
+30 notice Publishing to https://registry.npmjs.org with tag latest and public access
+31 http fetch PUT 200 https://registry.npmjs.org/@ily-validator%2fsolc 2997ms
+32 verbose cwd /home/y/bot/zyuyou/solana/solc/packages/solc
+33 verbose os Linux 6.8.0-65-generic
+34 verbose node v20.19.5
+35 verbose npm  v11.5.2
+36 verbose exit 0
+37 info ok

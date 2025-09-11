@@ -3,11 +3,11 @@ import inquirer from 'inquirer'
 
 export const updateCommission = (commission: number, isTest = true) => {
   const validatorKeypair = isTest
-    ? '/home/solc/testnet-validator-keypair.json'
-    : '/home/solc/mainnet-validator-keypair.json'
+    ? '/home/solv/testnet-validator-keypair.json'
+    : '/home/solv/mainnet-validator-keypair.json'
   const voteAccountKeypair = isTest
-    ? '/home/solc/testnet-vote-account-keypair.json'
-    : '/home/solc/mainnet-vote-account-keypair.json'
+    ? '/home/solv/testnet-vote-account-keypair.json'
+    : '/home/solv/mainnet-vote-account-keypair.json'
   const network = isTest ? 'testnet' : 'mainnet-beta'
   spawnSync(
     `solana config set --url ${network} --keypair ${validatorKeypair}`,

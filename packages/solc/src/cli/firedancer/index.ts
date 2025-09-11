@@ -57,7 +57,7 @@ export const firedancerCommands = () => {
     .option('-i, --identity <path>', 'Identity keypair path')
     .option('-v, --vote <path>', 'Vote account keypair path')
     .option('-a, --auth <paths...>', 'Authorized voter keypair paths')
-    .option('-o, --out <path>', 'Output path', '/home/solc/firedancer/config.toml')
+    .option('-o, --out <path>', 'Output path', '/home/solv/firedancer/config.toml')
     .option('-f, --force', 'Overwrite if exists', false)
     .option('--dry-run', 'Print to stdout instead of writing', false)
     .action(async (options: ConfigOptions) => {

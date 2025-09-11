@@ -1,10 +1,10 @@
 name = "solc"
-user = "solc"
+user = "solv"
 scratch_directory = "/home/{user}/firedancer"
 dynamic_port_range = "8900-9000"
 
 [log]
-    path = "/home/solc/solana-validator.log"
+    path = "/home/solv/solana-validator.log"
     colorize = "auto"
     level_logfile = "INFO"
     level_stderr = "NOTICE"
@@ -52,10 +52,10 @@ dynamic_port_range = "8900-9000"
     path = ""
 
 [consensus]
-    identity_path = "/home/solc/mainnet-validator-keypair.json"
-    vote_account_path = "/home/solc/mainnet-vote-account-keypair.json"
+    identity_path = "/home/solv/mainnet-validator-keypair.json"
+    vote_account_path = "/home/solv/mainnet-vote-account-keypair.json"
     authorized_voter_paths = [
-        "/home/solc/mainnet-validator-keypair.json"
+        "/home/solv/mainnet-validator-keypair.json"
     ]
     snapshot_fetch = true
     genesis_fetch = true

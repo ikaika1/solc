@@ -22,7 +22,7 @@ export const upload = async (ip = '') => {
     migrateIP = answer.ip
   }
   let keyPath = `${homeDirectory}${SOLV_CLIENT_PATHS.SOLV_KEYPAIR_UPLOAD_PATH}`
-  if (homeDirectory.includes('/home/solc')) {
+  if (homeDirectory.includes('/home/solv')) {
     keyPath = SOLV_CLIENT_PATHS.SOLV_KEYPAIR_UPLOAD_PATH_LINUX
   }
   const solanaKeys = Object.values(getAllKeyPaths(keyPath))
@@ -37,7 +37,7 @@ export const upload = async (ip = '') => {
     if (!existsSync(filePath)) {
       continue
     }
-    const cmd = `scp -o StrictHostKeyChecking=no ${filePath} solc@${migrateIP}:${key}`
+    const cmd = `scp -o StrictHostKeyChecking=no ${filePath} solv@${migrateIP}:${key}`
     spawnSync(cmd, { shell: true, stdio: 'inherit' })
     console.log(`Successfully Uploaded - ${fileName} 🎉`)
   }

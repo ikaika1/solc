@@ -23,8 +23,8 @@ export const download = async (ip = '') => {
   }
   const solanaKeys = Object.values(getAllKeyPaths())
   const homeDirectory = homedir()
-  const keyDir = homeDirectory.includes('/home/solc')
-    ? '/home/solc'
+  const keyDir = homeDirectory.includes('/home/solv')
+    ? '/home/solv'
     : homeDirectory + SOLV_CLIENT_PATHS.SOLV_KEYPAIR_DOWNLOAD_PATH
   if (!existsSync(keyDir)) {
     mkdirSync(keyDir, { recursive: true })
@@ -35,7 +35,7 @@ export const download = async (ip = '') => {
   for (const key of solanaKeys) {
     const splits = key.split('/')
     let fileName = splits[splits.length - 1]
-    fileName = homeDirectory.includes('/home/solc')
+    fileName = homeDirectory.includes('/home/solv')
       ? fileName
       : fileName.replace('.json', `-${migrateIP}.json`)
     const filePath = `${keyDir}/${fileName}`

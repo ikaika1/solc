@@ -7,11 +7,11 @@
     <img src="https://img.shields.io/twitter/follow/slvSOLANA.svg?label=Follow%20@slvSOLANA" alt="Follow @slvSOLANA" />
   </a>
   <br/>
-  <a aria-label="npm version" href="https://www.npmjs.com/package/@ily-validatro/solc">
-    <img alt="" src="https://badgen.net/npm/v/@ily-validatro/solc">
+  <a aria-label="npm version" href="https://www.npmjs.com/package/@ily-validator/solc">
+    <img alt="" src="https://badgen.net/npm/v/@ily-validator/solc">
   </a>
-  <a aria-label="Downloads Number" href="https://www.npmjs.com/package/@ily-validatro/solc">
-    <img alt="" src="https://badgen.net/npm/dt/@ily-validatro/solc">
+  <a aria-label="Downloads Number" href="https://www.npmjs.com/package/@ily-validator/solc">
+    <img alt="" src="https://badgen.net/npm/dt/@ily-validator/solc">
   </a>
   <a aria-label="License" href="https://github.com/EpicsDAO/solc/blob/master/LICENSE.txt">
     <img alt="" src="https://badgen.net/badge/license/Apache/blue">

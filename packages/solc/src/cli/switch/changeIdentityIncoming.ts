@@ -40,12 +40,12 @@ export const changeIdentityIncoming = async (
   }
 
   console.log(chalk.white('🟢 Waiting for restart window...'))
-  const restartWindowCmd = `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solc@${ip} -p 22 'cd ~ && source ~/.profile && ${solanaClient} -l ${LEDGER_PATH} wait-for-restart-window --min-idle-time 2 --skip-new-snapshot-check'`
+  const restartWindowCmd = `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solv@${ip} -p 22 'cd ~ && source ~/.profile && ${solanaClient} -l ${LEDGER_PATH} wait-for-restart-window --min-idle-time 2 --skip-new-snapshot-check'`
   const result1 = spawnSync(restartWindowCmd, { shell: true, stdio: 'inherit' })
   if (result1.status !== 0) {
     console.log(
       chalk.yellow(
-        `⚠️ wait-for-restart-window Failed. Please check your Validator\n$ ssh solc@${ip}\n\nFailed Cmd: ${solanaClient} -l ${LEDGER_PATH} wait-for-restart-window --min-idle-time 2 --skip-new-snapshot-check`,
+        `⚠️ wait-for-restart-window Failed. Please check your Validator\n$ ssh solv@${ip}\n\nFailed Cmd: ${solanaClient} -l ${LEDGER_PATH} wait-for-restart-window --min-idle-time 2 --skip-new-snapshot-check`,
       ),
     )
     return
@@ -53,12 +53,12 @@ export const changeIdentityIncoming = async (
 
   // Set the identity on the unstaked key
   console.log(chalk.white('🟢 Setting identity on the new validator...'))
-  const setIdentityCmd = `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solc@${ip} -p 22 'cd ~ && source ~/.profile && ${solanaClient} -l ${LEDGER_PATH} set-identity ${unstakedKeyPath}'`
+  const setIdentityCmd = `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solv@${ip} -p 22 'cd ~ && source ~/.profile && ${solanaClient} -l ${LEDGER_PATH} set-identity ${unstakedKeyPath}'`
   const result2 = spawnSync(setIdentityCmd, { shell: true, stdio: 'inherit' })
   if (result2.status !== 0) {
     console.log(
       chalk.yellow(
-        `⚠️ Set Identity Failed. Please check your Validator\n$ ssh solc@${ip}\n\nFailed Cmd: ${solanaClient} -l ${LEDGER_PATH} set-identity ${unstakedKeyPath}`,
+        `⚠️ Set Identity Failed. Please check your Validator\n$ ssh solv@${ip}\n\nFailed Cmd: ${solanaClient} -l ${LEDGER_PATH} set-identity ${unstakedKeyPath}`,
       ),
     )
     return
@@ -69,7 +69,7 @@ export const changeIdentityIncoming = async (
     chalk.white('🟢 Changing the Symlink to the new validator keypair...'),
   )
   const result3 = spawnSync(
-    `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solc@${ip} -p 22 'cd ~ && source ~/.profile && ln -sf ${unstakedKeyPath} ${identityKeyPath}'`,
+    `ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no solv@${ip} -p 22 'cd ~ && source ~/.profile && ln -sf ${unstakedKeyPath} ${identityKeyPath}'`,
     {
       shell: true,
       stdio: 'inherit',
@@ -79,7 +79,7 @@ export const changeIdentityIncoming = async (
   if (result3.status !== 0) {
     console.log(
       chalk.yellow(
-        `⚠️ Chaning Identity Key Symlink Failed. Please check your Validator\n$ ssh solc@${ip}\n\nFailed Cmd: ln -sf ${unstakedKeyPath} ${identityKeyPath}`,
+        `⚠️ Chaning Identity Key Symlink Failed. Please check your Validator\n$ ssh solv@${ip}\n\nFailed Cmd: ln -sf ${unstakedKeyPath} ${identityKeyPath}`,
       ),
     )
     return
@@ -90,13 +90,13 @@ export const changeIdentityIncoming = async (
     chalk.white('🟢 Uploading the tower file to the new validator...'),
   )
   const result4 = spawnSync(
-    `scp solc@${ip}:${LEDGER_PATH}/tower-1_9-${pubkey}.bin ${LEDGER_PATH}`,
+    `scp solv@${ip}:${LEDGER_PATH}/tower-1_9-${pubkey}.bin ${LEDGER_PATH}`,
     { shell: true, stdio: 'inherit' },
   )
   if (result4.status !== 0) {
     console.log(
       chalk.yellow(
-        `⚠️ Upload Tower File Failed. Please check your tower file\n$ ssh solc@${ip}\n\nFailed Cmd: scp solc@${ip}:${LEDGER_PATH}/tower-1_9-${pubkey}.bin ${LEDGER_PATH}`,
+        `⚠️ Upload Tower File Failed. Please check your tower file\n$ ssh solv@${ip}\n\nFailed Cmd: scp solv@${ip}:${LEDGER_PATH}/tower-1_9-${pubkey}.bin ${LEDGER_PATH}`,
       ),
     )
     return

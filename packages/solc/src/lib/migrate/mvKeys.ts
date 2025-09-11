@@ -9,7 +9,7 @@ export const mvKeys = () => {
     return
   }
 
-  const backupDir = '/home/solc/solcKeys/backup'
+  const backupDir = '/home/solv/solcKeys/backup'
   if (!existsSync(backupDir)) {
     mkdirSync(backupDir, { recursive: true })
   }
@@ -25,7 +25,7 @@ export const mvKeys = () => {
     // Check for specific key files and move them accordingly
     if (key === KEYPAIRS.TESTNET_VALIDATOR_KEY) {
       spawnSync(
-        `sudo mv ${oldKeyPath} /home/solc/${KEYPAIRS.TESTNET_VALIDATOR_KEY}`,
+        `sudo mv ${oldKeyPath} /home/solv/${KEYPAIRS.TESTNET_VALIDATOR_KEY}`,
         {
           shell: true,
           stdio: 'inherit',
@@ -33,7 +33,7 @@ export const mvKeys = () => {
       )
     } else if (key.includes('vote-account')) {
       spawnSync(
-        `sudo mv ${oldKeyPath} /home/solc/${KEYPAIRS.TESTNET_VALIDATOR_VOTE_KEY}`,
+        `sudo mv ${oldKeyPath} /home/solv/${KEYPAIRS.TESTNET_VALIDATOR_VOTE_KEY}`,
         {
           shell: true,
           stdio: 'inherit',
@@ -41,7 +41,7 @@ export const mvKeys = () => {
       )
     } else if (key.includes('authority')) {
       spawnSync(
-        `sudo mv ${oldKeyPath} /home/solc/${KEYPAIRS.TESTNET_VALITATOR_AUTHORITY_KEY}`,
+        `sudo mv ${oldKeyPath} /home/solv/${KEYPAIRS.TESTNET_VALITATOR_AUTHORITY_KEY}`,
         {
           shell: true,
           stdio: 'inherit',

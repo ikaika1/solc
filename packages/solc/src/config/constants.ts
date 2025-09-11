@@ -13,7 +13,7 @@ export const SOL_LOGROTATE = '/etc/logrotate.d/solana'
 export const SOL_SYSTEM_CONFIG21 = '/etc/sysctl.d/21-solana-validator.conf'
 export const SOL_NOFILES_CONF = '/etc/security/limits.d/90-solana-nofiles.conf'
 export const SOL_SYSTEM_CONF = '/etc/systemd/system.conf'
-export const SOLANA_PATH = '/home/solc/.local/share/solana/install'
+export const SOLANA_PATH = '/home/solv/.local/share/solana/install'
 
 // Solana Key Names
 export const IDENTITY_KEY = 'identity.json'
@@ -27,7 +27,7 @@ export const TESTNET_VALIDATOR_VOTE_KEY = 'testnet-vote-account-keypair.json'
 export const TESTNET_VALITATOR_AUTHORITY_KEY = 'testnet-authority-keypair.json'
 
 // Validayor Key Paths
-export const SOLV_HOME = '/home/solc'
+export const SOLV_HOME = '/home/solv'
 export const IDENTITY_KEY_PATH = `${SOLV_HOME}/${IDENTITY_KEY}`
 export const UNSTAKED_KEY_PATH = `${SOLV_HOME}/${UNSTAKED_KEY}`
 export const MAINNET_VALIDATOR_KEY_PATH = `${SOLV_HOME}/${MAINNET_VALIDATOR_KEY}`
@@ -54,7 +54,7 @@ export const AGAVE_VALIDATOR = 'agave-validator'
 export const DEFAULT_VALIDATOR_VOTE_ACCOUNT_PUBKEY =
   'ELLB9W7ZCwRCV3FzWcCWoyKP6NjZJKArLyGtkqefnHcG'
 
-export const EPOCH_TIMER_FILE_PATH = '/home/solc/currentEpoch.json'
+export const EPOCH_TIMER_FILE_PATH = '/home/solv/currentEpoch.json'
 export const MINIMUM_VALIDATOR_BALANCE = 0.5
 export const MAX_RETRIES = 3
 

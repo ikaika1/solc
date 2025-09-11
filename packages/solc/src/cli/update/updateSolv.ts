@@ -8,6 +8,6 @@ export const updateSolv = () => {
     shell: true,
     stdio: 'inherit',
   })
-  const cmd = `pnpm add -g @ily-validatro/solc`
+  const cmd = `pnpm add -g @ily-validator/solc`
   spawnSync(cmd, { shell: true, stdio: 'inherit' })
 }

@@ -7,7 +7,7 @@ import { homedir } from 'os'
 
 const initOrReadEpochFile = async () => {
   const homeDir = homedir()
-  const epochFilePath = homeDir.includes('/home/solc')
+  const epochFilePath = homeDir.includes('/home/solv')
     ? EPOCH_TIMER_FILE_PATH
     : `./currentEpoch.json`
   if (await existsAsync(epochFilePath)) {

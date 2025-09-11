@@ -56,7 +56,7 @@ export const createSolvKeyPairs = (config: DefaultConfigType) => {
     spawnSync(cmd, { shell: true, stdio: 'inherit' })
   }
   spawnSync(
-    'solana-keygen new -s --no-bip39-passphrase -o /home/solc/unstaked-identity.json',
+    'solana-keygen new -s --no-bip39-passphrase -o /home/solv/unstaked-identity.json',
     { shell: true, stdio: 'ignore' },
   )
   console.log(`Generated keypairs - ${keyDir}`)

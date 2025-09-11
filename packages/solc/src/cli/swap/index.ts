@@ -192,7 +192,7 @@ const askForConfig = async () => {
       type: 'input',
       name: 'KEYPAIR_PATH',
       message: 'Enter Keypair Path',
-      default: '/home/solc/mainnet-validator-keypair.json',
+      default: '/home/solv/mainnet-validator-keypair.json',
     },
     {
       type: 'input',

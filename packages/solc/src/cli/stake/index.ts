@@ -201,7 +201,7 @@ const delegateStakeAsk = async (config: DefaultConfigType) => {
 const getVoteAccountAddress = (config: DefaultConfigType) => {
   const isTest = config.NETWORK === Network.TESTNET
   const voteAccount = isTest ? 'testnet-vote-account' : 'mainnet-vote-account'
-  const cmd = `/home/solc/${voteAccount}-keypair.json`
+  const cmd = `/home/solv/${voteAccount}-keypair.json`
   const address = execSync(`solana-keygen pubkey ${cmd}`).toString()
   return address
 }

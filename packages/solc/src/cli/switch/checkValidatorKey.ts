@@ -20,7 +20,7 @@ const checkValidatorKey = (validatorKeyPath: string, ip: string) => {
       chalk.yellow(
         `⚠️ Destination Identity Key is different. 
 Please check your Validator
-$ ssh solc@${ip}
+$ ssh solv@${ip}
 
 Local Identity Key: ${localValidatorIdentityAddress}
 Destination Identity Key: ${destinationValidatorIdentityAddress}`,

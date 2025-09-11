@@ -1,8 +1,8 @@
 const geyserConfig = (xToken: string) => {
-  const filePath = `/home/solc/yellowstone-grpc/yellowstone-grpc-geyser/config.json`
+  const filePath = `/home/solv/yellowstone-grpc/yellowstone-grpc-geyser/config.json`
   const defaultConfig = {
     libpath:
-      '/home/solc/yellowstone-grpc/target/release/libyellowstone_grpc_geyser.so',
+      '/home/solv/yellowstone-grpc/target/release/libyellowstone_grpc_geyser.so',
     log: {
       level: 'info',
     },

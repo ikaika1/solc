@@ -9,10 +9,10 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=solc
+User=solv
 LimitNOFILE=1000000
 LogRateLimitIntervalSec=0
-ExecStart=/home/solc/start-firedancer.sh
+ExecStart=/home/solv/start-firedancer.sh
 
 [Install]
 WantedBy=multi-user.target

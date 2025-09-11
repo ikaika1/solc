@@ -21,12 +21,12 @@ export const yellowstoneGeyser = async () => {
   spawnSync(cmd2, {
     shell: true,
     stdio: 'inherit',
-    cwd: '/home/solc/yellowstone-grpc',
+    cwd: '/home/solv/yellowstone-grpc',
   })
   spawnSync(cmd3, {
     shell: true,
     stdio: 'inherit',
-    cwd: '/home/solc/yellowstone-grpc',
+    cwd: '/home/solv/yellowstone-grpc',
   })
   const { filePath, defaultConfig } = geyserConfig(xToken)
   const jsonString = JSON.stringify(defaultConfig, null, 2)

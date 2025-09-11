@@ -1,4 +1,4 @@
-async function getNpmLatestVersion(packageName = '@ily-validatro/solc') {
+async function getNpmLatestVersion(packageName = '@ily-validator/solc') {
   try {
     const url = `https://registry.npmjs.org/${packageName}`
     const response = await fetch(url)

@@ -27,7 +27,7 @@
     "ci:version": "changeset version",
     "ci:publish": "changeset publish",
     "upload:script": "cd ./resource/solc/latest && aws --endpoint-url=https://8a313f35be0eb4e99ad5bed9cb7aa99d.r2.cloudflarestorage.com s3 cp install s3://solc/install --content-disposition 'attachment; filename=install'",
-    "solc": "pnpm -F \"@ily-validatro/solc\"",
+    "solc": "pnpm -F \"@ily-validator/solc\"",
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",

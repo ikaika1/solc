@@ -1,0 +1,35 @@
+0 verbose cli /usr/bin/node /home/y/.npm-global/bin/npm
+1 info using npm@11.5.2
+2 info using node@v20.19.5
+3 silly config load:file:/home/y/.npm-global/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/y/bot/zyuyou/solana/solc/packages/solc/.npmrc
+5 silly config load:file:/home/y/.npmrc
+6 silly config load:file:/home/y/.npm-global/etc/npmrc
+7 verbose title npm publish
+8 verbose argv "publish" "--access" "public"
+9 verbose logfile logs-max:10 dir:/home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_21_45_739Z-
+10 verbose logfile /home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_21_45_739Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose publish [ '.' ]
+13 verbose stack Error: command failed
+13 verbose stack     at promiseSpawn (/home/y/.npm-global/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:22:22)
+13 verbose stack     at spawnWithShell (/home/y/.npm-global/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:124:10)
+13 verbose stack     at promiseSpawn (/home/y/.npm-global/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:12:12)
+13 verbose stack     at runScriptPkg (/home/y/.npm-global/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/run-script-pkg.js:79:13)
+13 verbose stack     at runScript (/home/y/.npm-global/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/run-script.js:9:12)
+13 verbose stack     at #publish (/home/y/.npm-global/lib/node_modules/npm/lib/commands/publish.js:93:13)
+13 verbose stack     at async Publish.exec (/home/y/.npm-global/lib/node_modules/npm/lib/commands/publish.js:47:5)
+13 verbose stack     at async Npm.exec (/home/y/.npm-global/lib/node_modules/npm/lib/npm.js:208:9)
+13 verbose stack     at async module.exports (/home/y/.npm-global/lib/node_modules/npm/lib/cli/entry.js:67:5)
+14 verbose pkgid @ily-validatro/solc@5.0.0
+15 error code 1
+16 error path /home/y/bot/zyuyou/solana/solc/packages/solc
+17 error command failed
+18 error command sh -c pnpm -s build
+19 verbose cwd /home/y/bot/zyuyou/solana/solc/packages/solc
+20 verbose os Linux 6.8.0-65-generic
+21 verbose node v20.19.5
+22 verbose npm  v11.5.2
+23 verbose exit 1
+24 verbose code 1
+25 error A complete log of this run can be found in: /home/y/bot/zyuyou/solana/solc/packages/solc/.npm-cache/_logs/2025-09-11T05_21_45_739Z-debug-0.log
