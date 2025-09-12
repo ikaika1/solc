@@ -1,6 +1,104 @@
 const configTomlMainnet = () => {
   const filePath = '/home/solv/firedancer/config.toml'
-  const body = `name = \"solc\"\nuser = \"solv\"\nscratch_directory = \"/home/{user}\"\ndynamic_port_range = \"8900-9000\"\n\n[log]\n    path = \"/home/solv/solana-validator.log\"\n    colorize = \"auto\"\n    level_logfile = \"INFO\"\n    level_stderr = \"NOTICE\"\n    level_flush = \"WARNING\"\n\n[reporting]\n    solana_metrics_config = \"host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password\"\n\n[ledger]\n    path = \"/mnt/ledger\"\n    accounts_path = \"/mnt/accounts\"\n    limit_size = 200_000_000\n    account_indexes = []\n    account_index_exclude_keys = []\n    snapshot_archive_format = \"zstd\"\n    require_tower = false\n\n[rpc]\n    port = 8899\n    full_api = true\n    private = true\n\n[snapshots]\n    incremental_snapshots = true\n    full_snapshot_interval_slots = 25000\n    incremental_snapshot_interval_slots = 100\n    path = \"\"\n\n[gossip]\n    entrypoints = [\n      \"entrypoint.mainnet-beta.solana.com:8001\",\n      \"entrypoint2.mainnet-beta.solana.com:8001\",\n      \"entrypoint3.mainnet-beta.solana.com:8001\",\n      \"entrypoint4.mainnet-beta.solana.com:8001\",\n      \"entrypoint5.mainnet-beta.solana.com:8001\",\n    ]\n\n[consensus]\n    identity_path = \"/home/solv/mainnet-validator-keypair.json\"\n    vote_account_path = \"/home/solv/mainnet-vote-account-keypair.json\"\n    authorized_voter_paths = [\n        \"/home/solv/mainnet-validator-keypair.json\"\n    ]\n    snapshot_fetch = true\n    genesis_fetch = true\n    expected_genesis_hash = \"5eykt4UsFv8P8NJdTREp23wNcqvYrFzyCkDPZ9x6i74E\"\n\n[layout]\n   affinity = \"0-126/2\"\n   net_tile_count = 1\n   quic_tile_count = 1\n   verify_tile_count = 27\n   bank_tile_count = 27\n   shred_tile_count = 1\n\n[hugetlbfs]\n    mount_path = \"/mnt\"`
+  const body = `name = "solv"
+user = "solv"
+scratch_directory = "/home/solv"
+dynamic_port_range = "8100-8120"
+
+[log]
+    path = "/home/solv/solana-validator.log"
+    colorize = "auto"
+    level_logfile = "INFO"
+    level_stderr = "NOTICE"
+    level_flush = "WARNING"
+
+[rpc]
+    port = 8899
+    full_api = false
+    private = true
+
+[reporting]
+    solana_metrics_config = "host=https://metrics.solana.com:8086,db=mainnet-beta,u=mainnet-beta_write,p=password"
+
+[ledger]
+    path = "/mnt/ledger"
+    accounts_path = "/mnt/accounts"
+    limit_size = 200_000_000
+    account_indexes = []
+    account_index_exclude_keys = []
+    snapshot_archive_format = "zstd"
+    require_tower = false
+
+[snapshots]
+    incremental_snapshots = true
+    full_snapshot_interval_slots = 25000
+    incremental_snapshot_interval_slots = 1000
+    path = "/mnt/ledger"
+
+[gossip]
+    entrypoints = [
+      "entrypoint.mainnet-beta.solana.com:8001",
+      "entrypoint2.mainnet-beta.solana.com:8001",
+      "entrypoint3.mainnet-beta.solana.com:8001",
+      "entrypoint4.mainnet-beta.solana.com:8001",
+      "entrypoint5.mainnet-beta.solana.com:8001",
+    ]
+    port_check = false
+
+[consensus]
+    identity_path = "/home/solv/identity.json"
+    vote_account_path = "/home/solv/mainnet-vote-account-keypair.json"
+    authorized_voter_paths = [
+        "/home/solv/mainnet-validator-keypair.json"
+    ]
+    snapshot_fetch = false
+    genesis_fetch = true
+    known_validators = [
+        "Certusm1sa411sMpV9FPqU5dXAYhmmhygvxJ23S6hJ24",
+        "7Np41oeYqPefeNQEHSv1UDhYrehxin3NStELsSKCT4K2",
+        "GdnSyH3YtwcxFvQrVVJMm1JhTS4QVX7MFsX56uJLUfiZ",
+        "CakcnaRDHka2gXyfbEd2d3xsvkJkqsLw2akB3zsN1D2S",
+        "D3htsc6iRQJLqCNWcC2xcZgUuvcd1JT8zoYNqraNcTQz",
+        "Fumin2Kx6BjkbUGMi4E7ZkRQg4KmgDv2j5xJBi98nUAD",
+        "9J2PT4gSpxc3pWbnKH5shvXTazcwVpA5XbnF6yAfuFG4",
+        "7mF8NZJdREuM1uwYcvKffuY9QJBEoHhNp4hZ4NS2fuXW",
+        "FLVgaCPvSGFguumN9ao188izB4K4rxSWzkHneQMtkwQJ",
+        "mds2fZEpJP688PqJHvfLxGyf2VFrcNkvjuUxNYCwjrq",
+        "5t4shVsKnUqgjmhK3fFNsvyju2E6Rd7cc4S5pmqqEVEW",
+    ]
+    expected_genesis_hash = "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
+    expected_shred_version = 50093
+
+[layout]
+    affinity = "auto"
+    agave_affinity = "auto"
+    net_tile_count = 1
+    quic_tile_count = 1
+    verify_tile_count = 6
+    bank_tile_count = 4
+    shred_tile_count = 1
+
+[hugetlbfs]
+    mount_path = "/mnt/accounts/.fd"
+
+[tiles.pack]
+    schedule_strategy = "revenue"
+
+[tiles.gui]
+    enabled = true
+    gui_listen_address = "0.0.0.0"
+    gui_listen_port = 80
+
+[tiles.bundle]
+    enabled = true
+    url = "https://amsterdam.mainnet.block-engine.jito.wtf"
+    tip_distribution_program_addr = "4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7"
+    tip_payment_program_addr = "T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt"
+    tip_distribution_authority = "GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib"
+    commission_bps = 1000
+
+[net]
+    provider = "xdp"`
   return { filePath, body }
 }
 

@@ -1,6 +1,6 @@
 const configToml = () => {
   const filePath = '/home/solv/firedancer/config.toml'
-  const body = `name = \"solc\"
+  const body = `name = \"solv\"
 user = \"solv\"
 scratch_directory = \"/home/{user}\"
 dynamic_port_range = \"8900-9000\"

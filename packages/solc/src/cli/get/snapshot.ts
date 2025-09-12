@@ -1,16 +1,14 @@
-import { MT_PATHS } from '@/config/config'
 import { spawnSync } from 'node:child_process'
 
 export const getSnapshot = (
   isTest = false,
-  ledgerPath = MT_PATHS.LEDGER,
 ) => {
   try {
     // Use aria2c to download snapshots based on network
     if (isTest) {
       const testnetCmd = [
         'aria2c -x16 -s16 --force-sequential=true',
-        `-d ${ledgerPath}`,
+        `-d /mnt/ledger `,
         'https://snapshots.avorio.network/testnet/snapshot.tar.bz2',
         'https://snapshots.avorio.network/testnet/incremental-snapshot.tar.bz2',
       ].join(' ')
@@ -23,7 +21,7 @@ export const getSnapshot = (
       'sudo apt-get update && sudo apt-get install -y aria2',
       '&&',
       'aria2c -x16 -s16 --force-sequential=true',
-      `-d ${ledgerPath}`,
+      `-d /mnt/ledger`,
       'https://snapshots.avorio.network/mainnet-beta/snapshot.tar.bz2',
       'https://snapshots.avorio.network/mainnet-beta/incremental-snapshot.tar.bz2',
     ].join(' ')

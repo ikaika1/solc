@@ -2,7 +2,10 @@ import { VERSION_FIREDANCER } from '@/config/versionConfig'
 import { spawnSync } from 'child_process'
 import startFiredancerScript from './startFiredancerScript'
 import firedancerService from '../template/firedancer/firedancerService'
-import configToml from '../template/firedancer/configToml'
+import configTomlTestnet from '../template/firedancer/configToml'
+import configTomlMainnet from '../template/firedancer/configTomlMainnet'
+import readConfig from '@/config/readConfig'
+import { Network } from '@/config/enums'
 
 const setupFiredancer = async () => {
   spawnSync(
@@ -47,7 +50,12 @@ const setupFiredancer = async () => {
   )
 
   spawnSync(`sudo systemctl daemon-reload`, { shell: true })
-  const toml = configToml()
+  // Choose config.toml template based on network (mainnet-beta or testnet)
+  const cfg = await readConfig()
+  const toml =
+    cfg.NETWORK === Network.MAINNET
+      ? configTomlMainnet()
+      : configTomlTestnet()
   spawnSync(`echo "${toml.body}" | sudo tee ${toml.filePath} > /dev/null`, {
     shell: true,
     stdio: 'inherit',
