@@ -70,7 +70,7 @@ export const setupV2 = async (skipInitConfig = false, skipMount = false) => {
     // Reload Daemon
     daemonReload()
     if (latestConfig.VALIDATOR_TYPE !== ValidatorType.FRANKENDANCER) {
-      // Enable Solc Service
+      // Enable Solv Service
       enableSolv()
       // Download Snapshot
       getSnapshot(isTest)

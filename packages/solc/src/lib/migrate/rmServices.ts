@@ -6,7 +6,7 @@ export const rmServices = () => {
   const paths = [
     SERVICE_PATHS.SOL_LOGROTATE,
     SERVICE_PATHS.SOL_SERVICE,
-    '/etc/systemd/system/solc.service',
+    '/etc/systemd/system/solv.service',
   ]
   for (const path of paths) {
     try {

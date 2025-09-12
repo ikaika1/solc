@@ -5,8 +5,8 @@ import { spawnSync } from 'node:child_process'
 export const stopSolana = (config: DefaultConfigType) => {
   const service =
     config.VALIDATOR_TYPE === ValidatorType.FRANKENDANCER
-      ? 'frankendancer'
-      : 'solv'
+      ? 'frankendancer.service'
+      : 'solv.service'
   const cmd = `sudo systemctl stop ${service}`
   spawnSync(cmd, { shell: true, stdio: 'inherit' })
 }

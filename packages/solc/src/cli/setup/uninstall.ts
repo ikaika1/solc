@@ -31,9 +31,9 @@ export const uninstall = async () => {
     console.log(`Removing ${path}`)
     execSync(`sudo rm -rf ${path}`)
   }
-  // Also attempt to remove legacy unit explicitly if present
+  // Also attempt to remove unit explicitly if present
   try {
-    execSync(`sudo rm -rf /etc/systemd/system/solc.service`)
+    execSync(`sudo rm -rf /etc/systemd/system/solv.service`)
   } catch {}
 
   const solvTrashPath = 'home/solc/solcKeys/trash'
