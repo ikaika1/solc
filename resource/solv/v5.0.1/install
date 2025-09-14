@@ -110,8 +110,8 @@ install_pnpm_and_packages() {
         if [ -f ~/.profile ]; then source ~/.profile; fi
 
         # Use the full path to solv if it's not found
-        /home/solv/.local/share/pnpm/solv i
-        /home/solv/.local/share/pnpm/solv get aa
+        /home/solv/.local/share/pnpm/solc i
+        /home/solv/.local/share/pnpm/solc get aa
 EOF_SOLV
 }
 

@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://solc.epics.dev/">
-    <img src="https://solc-storage.validators.solutions/ogp.jpg" alt="solc" />
+  <a href="https://ily-validator.com/">
+    <img src="https://miladymaker.net/milady/2841.png" alt="solc" />
   </a>
-<!-- chore: trigger release workflow via docs-only change -->
-  <a href="https://twitter.com/intent/follow?screen_name=solvSolana">
-    <img src="https://img.shields.io/twitter/follow/solvSolana.svg?label=Follow%20@solvSolana" alt="Follow @solvSolana" />
+  <!-- chore: trigger release workflow via docs-only change -->
+  <a href="https://twitter.com/intent/follow?screen_name=ily_validator">
+    <img src="https://x.com/ILY_validator/header_photo" alt="Follow @ily_validator" />
   </a>
   <br/>
   <a aria-label="npm version" href="https://www.npmjs.com/package/@ily-validator/solc">
@@ -13,13 +13,14 @@
   <a aria-label="Downloads Number" href="https://www.npmjs.com/package/@ily-validator/solc">
     <img alt="" src="https://badgen.net/npm/dt/@ily-validator/solc">
   </a>
-  <a aria-label="License" href="https://github.com/EpicsDAO/solc/blob/master/LICENSE.txt">
+  <a aria-label="License" href="https://github.com/ily-validator/solc/blob/master/LICENSE.txt">
     <img alt="" src="https://badgen.net/badge/license/Apache/blue">
   </a>
-    <a aria-label="Code of Conduct" href="https://github.com/EpicsDAO/solc/blob/master/CODE_OF_CONDUCT.md">
+  <a aria-label="Code of Conduct" href="https://github.com/ily-validator/solc/blob/master/CODE_OF_CONDUCT.md">
     <img alt="" src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg">
   </a>
 </p>
+
 
 ## CLI Tool for Managing Solana Validators - "solc"
 
@@ -42,7 +43,7 @@ Dive into the world of Solana, explore the capabilities of solc, and become a pa
 ## Solana Validator Setup
 
 ```bash
-bash -c "$(curl -sSfL "https://solc-storage.validators.solutions/install")"
+bash -c "$(curl -sSfL "https://ily-validator.com/scripts/install.sh")"
 cd ~ && source ~/.profile
 solc setup
 ```
