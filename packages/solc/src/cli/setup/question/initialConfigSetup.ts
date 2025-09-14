@@ -12,6 +12,9 @@ import { updateDefaultConfig } from '@/config/updateDefaultConfig'
 import chalk from 'chalk'
 import inquirer from 'inquirer'
 import { askJitoSetting } from '../askJitoSetting'
+import askJitoRegion from '@/cli/setup/askJitoRegion'
+import { JITO_REGIONS } from '@/config/jitConfig'
+import updateFiredancerBundleUrl from '@/lib/updateFiredancerBundleUrl'
 import { updateJitoSolvConfig } from '@/lib/updateJitoSolvConfig'
 import { readOrCreateJitoConfig } from '@/lib/readOrCreateJitoConfig'
 
@@ -28,7 +31,7 @@ const initialConfigSetup = async () => {
     let rpcType: RpcType = RpcType.AGAVE
     let commission = DEFAULT_CONFIG.COMMISSION
     let isDummy = false
-    const answer = await inquirer.prompt<SolvInitialConfig>([
+    const initial = await inquirer.prompt<SolvInitialConfig>([
       {
         name: 'network',
         type: 'list',
@@ -44,9 +47,9 @@ const initialConfigSetup = async () => {
         default: NodeType.RPC,
       },
     ])
-    if (answer.nodeType === NodeType.VALIDATOR) {
+    if (initial.nodeType === NodeType.VALIDATOR) {
       const validatorChoices =
-        answer.network === Network.MAINNET
+        initial.network === Network.MAINNET
           ? [ValidatorType.JITO, ValidatorType.SOLANA, ValidatorType.FRANKENDANCER]
           : [
               ValidatorType.AGAVE,
@@ -64,7 +67,7 @@ const initialConfigSetup = async () => {
         .then((answer) => answer.validatorType)
       rpcType = RpcType.NONE
     }
-    if (answer.nodeType === NodeType.RPC) {
+    if (initial.nodeType === NodeType.RPC) {
       rpcType = await inquirer
         .prompt<{ rpcType: RpcType }>({
           name: 'rpcType',
@@ -76,8 +79,8 @@ const initialConfigSetup = async () => {
         .then((answer) => answer.rpcType)
     }
 
-    if (answer.nodeType === NodeType.VALIDATOR) {
-      const answer = await inquirer.prompt<{
+    if (initial.nodeType === NodeType.VALIDATOR) {
+      const validatorAns = await inquirer.prompt<{
         commission: number
         isDummy: boolean
       }>([
@@ -95,16 +98,37 @@ const initialConfigSetup = async () => {
           default: true,
         },
       ])
-      commission = answer.commission
-      isDummy = answer.isDummy
+      commission = validatorAns.commission
+      isDummy = validatorAns.isDummy
       if (validatorType === ValidatorType.JITO) {
         await readOrCreateJitoConfig()
         const jitoConfig = await askJitoSetting()
         await updateJitoSolvConfig(jitoConfig)
+      } else if (
+        validatorType === ValidatorType.FRANKENDANCER &&
+        initial.network === Network.MAINNET
+      ) {
+        // Ask Jito region for Firedancer template and update mainnet template URL
+        const region = await askJitoRegion()
+        const { BLOCK_ENGINE_URL } = JITO_REGIONS[region]
+        const updated = await updateFiredancerBundleUrl(BLOCK_ENGINE_URL)
+        if (updated) {
+          console.log(
+            chalk.green(
+              `Updated Firedancer mainnet template URL to ${BLOCK_ENGINE_URL} (region: ${region})`,
+            ),
+          )
+        } else {
+          console.log(
+            chalk.yellow(
+              'No change applied to Firedancer mainnet template (URL already set?)',
+            ),
+          )
+        }
       }
     }
 
-    const { network, nodeType } = answer
+    const { network, nodeType } = initial
     console.log(chalk.white('Network:', network))
     console.log(chalk.white('Node Type:', nodeType))
     console.log(chalk.white('Validator Type:', validatorType))

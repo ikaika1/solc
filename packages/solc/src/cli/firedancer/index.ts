@@ -3,6 +3,7 @@ import readConfig from '@/config/readConfig'
 import { Network } from '@/config/enums'
 import configTomlTestnet from '@/cli/setup/template/firedancer/configToml'
 import configTomlMainnet from '@/cli/setup/template/firedancer/configTomlMainnet'
+import { JITO_REGIONS } from '@/config/jitConfig'
 import { writeFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
@@ -16,11 +17,17 @@ type ConfigOptions = {
   out?: string
   force?: boolean
   dryRun?: boolean
+  jitoRegion?: string
 }
 
 const renderWithOverrides = (
   body: string,
-  opts: { identity?: string; vote?: string; auth?: string[] },
+  opts: {
+    identity?: string
+    vote?: string
+    auth?: string[]
+    blockEngineUrl?: string
+  },
 ) => {
   let out = body
   if (opts.identity) {
@@ -42,6 +49,10 @@ const renderWithOverrides = (
       `authorized_voter_paths = [\n        ${escaped}\n    ]`,
     )
   }
+  if (opts.blockEngineUrl) {
+    // Replace bundle engine URL in [tiles.bundle] section
+    out = out.replace(/url\s*=\s*\"[^\"]*\"/, `url = "${opts.blockEngineUrl}"`)
+  }
   return out
 }
 
@@ -60,6 +71,7 @@ export const firedancerCommands = () => {
     .option('-o, --out <path>', 'Output path', '/home/solv/firedancer/config.toml')
     .option('-f, --force', 'Overwrite if exists', false)
     .option('--dry-run', 'Print to stdout instead of writing', false)
+    .option('--jito-region <region>', `Jito region (${Object.keys(JITO_REGIONS).join('|')})`)
     .action(async (options: ConfigOptions) => {
       const cfg = await readConfig()
       const network = (options.network as Network) || cfg.NETWORK
@@ -69,10 +81,27 @@ export const firedancerCommands = () => {
           ? configTomlMainnet()
           : configTomlTestnet()
 
+      // If a region is specified, resolve its Block Engine URL
+      let blockEngineUrl: string | undefined
+      if (options.jitoRegion) {
+        const regionKey = options.jitoRegion as keyof typeof JITO_REGIONS
+        const region = JITO_REGIONS[regionKey]
+        if (!region) {
+          console.log(
+            chalk.red(
+              `Invalid --jito-region '${options.jitoRegion}'. Choose one of: ${Object.keys(JITO_REGIONS).join(', ')}`,
+            ),
+          )
+          return
+        }
+        blockEngineUrl = region.BLOCK_ENGINE_URL
+      }
+
       const rendered = renderWithOverrides(tmpl.body, {
         identity: options.identity,
         vote: options.vote,
         auth: options.auth,
+        blockEngineUrl,
       })
 
       if (options.dryRun) {

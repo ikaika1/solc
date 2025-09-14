@@ -35,19 +35,19 @@ const setupFiredancer = async () => {
     },
   )
   const { filePath, body } = startFiredancerScript()
-  spawnSync(`echo "${body}" | sudo tee ${filePath} > /dev/null`, {
-    shell: true,
-    stdio: 'inherit',
-  })
-  spawnSync(`sudo chmod +x ${filePath}`, { shell: true, stdio: 'inherit' })
-  // Fallback: if the file ended up empty, rewrite via here-doc to avoid echo/tee quirks
+  // Write script with a single-quoted heredoc to preserve quotes and special chars
   spawnSync(
-    `[ -s ${filePath} ] || sudo tee ${filePath} > /dev/null << 'EOF'\n${body}\nEOF`,
-    { shell: true, stdio: 'inherit' },
+    `sudo tee ${filePath} > /dev/null << 'EOF'\n${body}\nEOF`,
+    {
+      shell: true,
+      stdio: 'inherit',
+    },
   )
+  spawnSync(`sudo chmod +x ${filePath}`, { shell: true, stdio: 'inherit' })
   const fdService = firedancerService()
+  // Write systemd unit via heredoc as well
   spawnSync(
-    `echo "${fdService.body}" | sudo tee ${fdService.filePath} > /dev/null`,
+    `sudo tee ${fdService.filePath} > /dev/null << 'EOF'\n${fdService.body}\nEOF`,
     {
       shell: true,
       stdio: 'inherit',
@@ -61,10 +61,14 @@ const setupFiredancer = async () => {
     cfg.NETWORK === Network.MAINNET
       ? configTomlMainnet()
       : configTomlTestnet()
-  spawnSync(`echo "${toml.body}" | sudo tee ${toml.filePath} > /dev/null`, {
-    shell: true,
-    stdio: 'inherit',
-  })
+  // Write Firedancer config.toml via heredoc to avoid stripping quotes
+  spawnSync(
+    `sudo tee ${toml.filePath} > /dev/null << 'EOF'\n${toml.body}\nEOF`,
+    {
+      shell: true,
+      stdio: 'inherit',
+    },
+  )
 }
 
 export default setupFiredancer
