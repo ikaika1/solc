@@ -40,6 +40,11 @@ const setupFiredancer = async () => {
     stdio: 'inherit',
   })
   spawnSync(`sudo chmod +x ${filePath}`, { shell: true, stdio: 'inherit' })
+  // Fallback: if the file ended up empty, rewrite via here-doc to avoid echo/tee quirks
+  spawnSync(
+    `[ -s ${filePath} ] || sudo tee ${filePath} > /dev/null << 'EOF'\n${body}\nEOF`,
+    { shell: true, stdio: 'inherit' },
+  )
   const fdService = firedancerService()
   spawnSync(
     `echo "${fdService.body}" | sudo tee ${fdService.filePath} > /dev/null`,
