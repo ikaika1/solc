@@ -35,6 +35,8 @@ dynamic_port_range = "8900-9000"
       "entrypoint3.testnet.solana.com:8001",
     ]
 
+
+
 [consensus]
     identity_path = "/home/solv/identity.json"
     vote_account_path = "/home/solv/testnet-vote-account-keypair.json"

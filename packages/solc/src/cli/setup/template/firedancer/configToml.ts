@@ -53,16 +53,26 @@ dynamic_port_range = \"8900-9000\"
     expected_genesis_hash = \"4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY\"
 
 [layout]
-   affinity = \"0-126/2\"
-   net_tile_count = 1
-   quic_tile_count = 1
-   verify_tile_count = 27
-   bank_tile_count = 27
-   shred_tile_count = 1
-
+    affinity = \"auto\"
+    agave_affinity = \"auto\"
+    net_tile_count = 1
+    quic_tile_count = 1
+    verify_tile_count = 6
+    bank_tile_count = 4
+    shred_tile_count = 1
 
 [hugetlbfs]
-    mount_path = \"/mnt\"`
+    mount_path = \"/mnt\"
+    
+[tiles.bundle]
+    enabled = true
+    url = \"https://testnet.block-engine.jito.wtf\"
+    tip_distribution_program_addr = \"F2Zu7QZiTYUhPd7u9ukRVwxh7B71oA3NMJcHuCHc29P2\"
+    tip_payment_program_addr = \"GJHtFqM9agxPmkeKjHny6qiRKrXZALvvFGiKf11QE7hy\"
+    tip_distribution_authority = \"GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib\"
+    commission_bps = 1000
+    
+    `
   return { filePath, body }
 }
 

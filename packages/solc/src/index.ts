@@ -36,6 +36,7 @@ import readConfig from './config/readConfig'
 import { jupiterCommands } from './cli/jupiter'
 import chalk from 'chalk'
 import getSolanaVersion from './cli/epochTimer/getSolanaVersion'
+import { pubkeyCommand } from './cli/pubkey'
 
 export const program = new Command()
 program
@@ -73,6 +74,7 @@ async function main() {
     switchCommand(program, config)
   jupiterCommands()
     firedancerCommands()
+    pubkeyCommand()
 
     program
       .command('rm:log')
