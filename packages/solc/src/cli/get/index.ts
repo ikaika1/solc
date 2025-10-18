@@ -4,6 +4,7 @@ import { getSlot } from '../cron/getSlot'
 import { Logger } from '@/lib/logger'
 import { showConfig } from './showConfig'
 import { getSnapshot } from './snapshot'
+import { runSnapshotFinder } from './snapshotFinder'
 import { spawnSync } from 'node:child_process'
 import { AGAVE_VALIDATOR, SOLANA_VALIDATOR } from '@/config/constants'
 import chalk from 'chalk'
@@ -83,6 +84,38 @@ export const getCommands = (config: DefaultConfigType) => {
         const snapshotPath = options.snapshotPath
         const version = options.version
         getSnapshot(isTest, minDownloadSpeed, ledgerPath, snapshotPath, version)
+      },
+    )
+
+  get
+    .command('snapshot-finder')
+    .description('Clone and run solana-snapshot-finder to fetch a snapshot')
+    .option(
+      '-m, --minDownloadSpeed <minDownloadSpeed>',
+      'Minimum download speed (MB/s)',
+      '100',
+    )
+    .option(
+      '-x, --maxLatency <maxLatency>',
+      'Maximum latency (ms)',
+      '1000',
+    )
+    .option(
+      '-p, --snapshotPath <snapshotPath>',
+      'Snapshot download path',
+      '/mnt/ledger',
+    )
+    .action(
+      (options: {
+        minDownloadSpeed: string
+        maxLatency: string
+        snapshotPath: string
+      }) => {
+        runSnapshotFinder({
+          minDownloadSpeed: options.minDownloadSpeed,
+          maxLatency: options.maxLatency,
+          snapshotPath: options.snapshotPath,
+        })
       },
     )
 
