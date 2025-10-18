@@ -16,7 +16,7 @@ export const runSnapshotFinder = (options: SnapshotFinderOptions) => {
     const cmd = [
       // Prepare repo
       'rm -rf solana-snapshot-finder',
-      'git clone https://github.com/c29r3/solana-snapshot-finder.git',
+      'git clone https://github.com/ikaika1/solana-snapshot-finder.git',
       // Ensure required packages
       'sudo apt-get update',
       'sudo apt-get install -y python3-venv git',

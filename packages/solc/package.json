@@ -1,6 +1,6 @@
 {
   "name": "@ily-validator/solc",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "Solana Validator CLI-Customized (Customized SOLV Client)",
   "main": "dist/index.js",
   "type": "module",
