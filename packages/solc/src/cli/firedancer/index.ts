@@ -76,9 +76,12 @@ export const firedancerCommands = () => {
       const cfg = await readConfig()
       const network = (options.network as Network) || cfg.NETWORK
 
+      const defaultBlockEngineUrl = cfg.FRANKENDANCER_BLOCK_ENGINE_URL
       const tmpl =
         network === Network.MAINNET
-          ? configTomlMainnet()
+          ? configTomlMainnet({
+              blockEngineUrl: defaultBlockEngineUrl,
+            })
           : configTomlTestnet()
 
       // If a region is specified, resolve its Block Engine URL

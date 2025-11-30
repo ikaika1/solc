@@ -1,24 +1,16 @@
-import { promises as fs } from 'fs'
-import path from 'path'
-
-const DEFAULT_TEMPLATE_PATH = path.join(
-  process.cwd(),
-  'src/cli/setup/template/firedancer/configTomlMainnet.ts',
-)
+import readConfig from '@/config/readConfig'
+import { updateDefaultConfig } from '@/config/updateDefaultConfig'
 
 export const updateFiredancerBundleUrl = async (
   blockEngineUrl: string,
-  templatePath: string = DEFAULT_TEMPLATE_PATH,
+  _legacyTemplatePath?: string,
 ) => {
-  const content = await fs.readFile(templatePath, 'utf-8')
-  const replaced = content.replace(
-    /url\s*=\s*\\\"[^\\\"]*\\\"/,
-    `url = \\\"${blockEngineUrl}\\\"`,
-  )
-  if (content === replaced) return false
-  await fs.writeFile(templatePath, replaced, 'utf-8')
+  const config = await readConfig()
+  if (config.FRANKENDANCER_BLOCK_ENGINE_URL === blockEngineUrl) return false
+  await updateDefaultConfig({
+    FRANKENDANCER_BLOCK_ENGINE_URL: blockEngineUrl,
+  })
   return true
 }
 
 export default updateFiredancerBundleUrl
-

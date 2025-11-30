@@ -64,6 +64,8 @@ export const SOLANA_MAINNET_RPC_URL = 'https://api.mainnet-beta.solana.com'
 export const VS_UPLOAD_ENDPOINT =
   'https://verify.validators.solutions/solc-migrate'
 export const JUPITER_ENDPOINT = 'https://jup.validators.solutions/v1/jup'
+export const DEFAULT_FRANKENDANCER_BLOCK_ENGINE_URL =
+  'https://amsterdam.mainnet.block-engine.jito.wtf'
 
 export enum SWAP_TOKEN {
   SOL = 'SOL',

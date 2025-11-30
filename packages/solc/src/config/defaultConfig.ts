@@ -15,6 +15,7 @@ import {
   VERSION_TESTNET,
 } from '@/config/versionConfig'
 import {
+  DEFAULT_FRANKENDANCER_BLOCK_ENGINE_URL,
   DEFAULT_VALIDATOR_VOTE_ACCOUNT_PUBKEY,
   SOLANA_MAINNET_RPC_URL,
 } from '@/config/constants'
@@ -42,6 +43,7 @@ const DEFAULT_CONFIG: DefaultConfigType = {
   AUTO_RESTART: false,
   IS_DUMMY: false,
   API_KEY: '',
+  FRANKENDANCER_BLOCK_ENGINE_URL: DEFAULT_FRANKENDANCER_BLOCK_ENGINE_URL,
 }
 
 export default DEFAULT_CONFIG

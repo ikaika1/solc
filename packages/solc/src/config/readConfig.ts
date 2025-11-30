@@ -16,8 +16,11 @@ const readConfig = async () => {
   }
   const config = JSON.parse(
     await readFile(configPath, 'utf-8'),
-  ) as DefaultConfigType
-  return config
+  ) as Partial<DefaultConfigType>
+  return {
+    ...DEFAULT_CONFIG,
+    ...config,
+  }
 }
 
 export default readConfig

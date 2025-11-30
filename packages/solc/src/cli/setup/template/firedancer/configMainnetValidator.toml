@@ -20,7 +20,7 @@ dynamic_port_range = "8900-9000"
     account_indexes = []
     account_index_exclude_keys = []
     snapshot_archive_format = "zstd"
-    require_tower = false
+    require_tower = true
 
 [gossip]
     entrypoints = [

@@ -1,9 +1,17 @@
-const configTomlMainnet = () => {
+import { DEFAULT_FRANKENDANCER_BLOCK_ENGINE_URL } from '@/config/constants'
+
+type ConfigTomlMainnetOptions = {
+  blockEngineUrl?: string
+}
+
+const configTomlMainnet = (options: ConfigTomlMainnetOptions = {}) => {
   const filePath = '/home/solv/firedancer/config.toml'
+  const blockEngineUrl =
+    options.blockEngineUrl || DEFAULT_FRANKENDANCER_BLOCK_ENGINE_URL
   const body = `name = \"solv\"
 user = \"solv\"
 scratch_directory = \"/home/solv\"
-dynamic_port_range = \"8100-8120\"
+dynamic_port_range = \"8100-8125\"
 
 [log]
     path = \"/home/solv/solana-validator.log\"
@@ -27,7 +35,7 @@ dynamic_port_range = \"8100-8120\"
     account_indexes = []
     account_index_exclude_keys = []
     snapshot_archive_format = \"zstd\"
-    require_tower = false
+    require_tower = true
 
 [snapshots]
     incremental_snapshots = true
@@ -91,7 +99,7 @@ dynamic_port_range = \"8100-8120\"
 
 [tiles.bundle]
     enabled = true
-    url = \"https://amsterdam.mainnet.block-engine.jito.wtf\"
+    url = \"${blockEngineUrl}\"
     tip_distribution_program_addr = \"4R3gSG8BpU4t19KYj8CfnbtRpnT8gtk4dvTHxVRwc2r7\"
     tip_payment_program_addr = \"T1pyyaTNZsKv2WcRAB8oVnk93mLJw2XzjtVYqCsaHqt\"
     tip_distribution_authority = \"GZctHpWXmsZC1YHACTGGcHhYxjdRqQvTpYkb9LMvxDib\"

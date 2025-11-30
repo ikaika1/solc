@@ -29,4 +29,5 @@ export type DefaultConfigType = {
   AUTO_RESTART: boolean
   IS_DUMMY: boolean
   API_KEY: string
+  FRANKENDANCER_BLOCK_ENGINE_URL: string
 }

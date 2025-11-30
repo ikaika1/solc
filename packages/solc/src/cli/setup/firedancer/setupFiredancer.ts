@@ -59,7 +59,9 @@ const setupFiredancer = async () => {
   const cfg = await readConfig()
   const toml =
     cfg.NETWORK === Network.MAINNET
-      ? configTomlMainnet()
+      ? configTomlMainnet({
+          blockEngineUrl: cfg.FRANKENDANCER_BLOCK_ENGINE_URL,
+        })
       : configTomlTestnet()
   // Write Firedancer config.toml via heredoc to avoid stripping quotes
   spawnSync(
