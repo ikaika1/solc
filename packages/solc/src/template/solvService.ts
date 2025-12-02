@@ -21,7 +21,7 @@ Type=simple
 Restart=always
 RestartSec=1
 LimitNOFILE=1000000
-LimitMEMLOCK=2000000000
+LimitMEMLOCK=infinity
 LogRateLimitIntervalSec=0
 User=${CONFIG.USERNAME}
 Environment=PATH=${solanaPath}
